@@ -27,8 +27,11 @@ class ImageLoader {
                 
                 var configuration = UIImageReader.Configuration()
                 configuration.prefersHighDynamicRange = showsHDR
+                
                 let reader = UIImageReader(configuration: configuration)
-                continuation.resume(returning: reader.image(data: data))
+                let image = reader.image(data: data)
+                
+                continuation.resume(returning: image)
             }
         }
     }

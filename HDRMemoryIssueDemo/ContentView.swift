@@ -14,6 +14,9 @@ struct ContentView: View {
     @AppStorage("showsHDR")
     private var showsHDR = true
     
+    @AppStorage("useUIImageView")
+    private var useUIImageView = true
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -48,6 +51,10 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Toggle("Shows HDR", isOn: $showsHDR)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Toggle("Use UIImageView", isOn: $useUIImageView)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -130,12 +137,23 @@ private struct ImageDetailView: View {
     @AppStorage("showsHDR")
     private var showsHDR = true
     
+    @AppStorage("useUIImageView")
+    private var useUIImageView = true
+    
     @State private var uiImage: UIImage? = nil
     
     var body: some View {
         ZStack {
             if let uiImage = uiImage {
-                ImageViewBridge(uiImage: uiImage)
+                if useUIImageView {
+                    ImageViewBridge(uiImage: uiImage)
+                } else {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .allowedDynamicRange(.high)
+                        .clipped()
+                }
             } else {
                 Rectangle().fill(Color.gray)
             }
