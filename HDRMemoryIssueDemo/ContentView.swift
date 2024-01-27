@@ -103,7 +103,6 @@ private struct ImageStripView: View {
 
 private struct ImageViewBridge: UIViewRepresentable {
     static func dismantleUIView(_ uiView: UIImageView, coordinator: ()) {
-        print("dismantleUIView")
         uiView.image = nil
     }
     
