@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  HDRMemoryIssueDemo
+
+  Created by Photon Juniper on 2024/1/27.
+  
+*/
+NSPhotoLibraryUsageDescription = "NSPhotoLibraryUsageDescription";
