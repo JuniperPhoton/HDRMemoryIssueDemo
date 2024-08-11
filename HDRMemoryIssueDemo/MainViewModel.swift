@@ -36,6 +36,7 @@ class MainViewModel: ObservableObject {
     
     func removeAll() {
         self.selectedItem = nil
+        self.photosItem = []
         self.items = []
     }
 }
