@@ -1,5 +1,7 @@
 # HDR Memory issue demo
 
+> NOTE: It seems like iOS 18 Beta 5 has resolved this issue.
+
 This demo illustrates a memory leak issue when loading HDR images. After building the demo and installing the app, you can recreate this issue by:
 
 - Clicking the button above to select images.
